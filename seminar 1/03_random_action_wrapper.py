@@ -6,7 +6,7 @@ Action = TypeVar('Action')
 
 
 class RandomActionWrapper(gym.ActionWrapper):
-    def __init__(self, env, epsilon=0.3):
+    def __init__(self, env, epsilon=0.9):
         super(RandomActionWrapper, self).__init__(env)
         self.epsilon = epsilon
 

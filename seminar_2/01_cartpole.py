@@ -16,13 +16,16 @@ import gymnasium as gym
 from collections import namedtuple
 import numpy as np
 from tensorboardX import SummaryWriter
+from gymnasium.wrappers import RecordVideo
+import glob
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
 
-EXPERIMENT_NAME = "-cartpole_hidden_state_64"  # or -cartpole_net_architecture_v1
-HIDDEN_SIZE = 64
+EXPERIMENT_NAME = "-cartpole_hidden_state_128_2_layers"  # or -cartpole_net_architecture_v1
+HIDDEN_SIZE1 = 64
+HIDDEN_SIZE2 = 128
 BATCH_SIZE = 16
 PERCENTILE = 70
 
@@ -31,12 +34,14 @@ EpisodeStep = namedtuple('EpisodeStep', field_names=['observation', 'action'])
 
 
 class Net(nn.Module):
-    def __init__(self, obs_size, hidden_size, n_actions):
+    def __init__(self, obs_size, hidden_size1, hidden_size2, n_actions):
         super(Net, self).__init__()
         self.net = nn.Sequential(
-            nn.Linear(obs_size, hidden_size),
+            nn.Linear(obs_size, hidden_size1),
             nn.ReLU(),
-            nn.Linear(hidden_size, n_actions)
+            nn.Linear(hidden_size1, hidden_size2),
+            nn.ReLU(),
+            nn.Linear(hidden_size2, n_actions),
         )
 
     def forward(self, x):
@@ -97,11 +102,11 @@ def filter_batch(batch, percentile):
 
 
 if __name__ == "__main__":
-    env = gym.make("CartPole-v1")
+    env = RecordVideo(gym.make("CartPole-v1",render_mode="rgb_array"), "./mp4")
     obs_size = env.observation_space.shape[0]
     n_actions = env.action_space.n
 
-    net = Net(obs_size, HIDDEN_SIZE, n_actions)
+    net = Net(obs_size, HIDDEN_SIZE1, HIDDEN_SIZE2, n_actions)
     loss = nn.CrossEntropyLoss()
     optimizer = optim.Adam(params=net.parameters(), lr=0.01)
     writer = SummaryWriter(comment=EXPERIMENT_NAME)
@@ -123,3 +128,6 @@ if __name__ == "__main__":
             print("Solved!")
             break
     writer.close()
+
+files = glob.glob(f'{env.video_folder}/{env.name_prefix}*.mp4')
+print(files)

@@ -55,12 +55,16 @@ nn.Linear(hidden_size2, n_actions),
 <img src="imgs/reward_4.png"/>
 
 ## 3. Видео отчет (2 балла)
+
+
 Лучший результат показала архитектура, которая имеет следующий вид: 
 ```
 nn.Linear(obs_size, hidden_size),
 nn.ReLU(),
 nn.Linear(hidden_size, n_actions)
+
 ```
+https://github.com/valeriiriabinkin/unienv/assets/45901469/d9d59422-24b6-4f5f-8381-7bc8e9350698
 Значение `hidden_size=128`. 
 Для этой архитектуры сходимость достигается в среднем за количество итераций (от 13 до 36). 
 Видео с примером работы агента приведено ниже.

@@ -70,9 +70,5 @@ nn.Linear(hidden_size, n_actions)
 <video src="mp4/rl-video-episode-343.mp4" width="240"/>
 
 
-https://github.com/valeriiriabinkin/unienv/assets/45901469/95093a4f-8a53-48c6-a334-bae0d0114338
-
-
-
 https://github.com/valeriiriabinkin/unienv/assets/45901469/eba1bd68-bc01-40ad-b536-e8cb57dde73b
 

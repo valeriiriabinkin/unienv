@@ -2,9 +2,10 @@
 import gymnasium as gym
 import collections
 from tensorboardX import SummaryWriter
+from gymnasium.envs.toy_text.frozen_lake import generate_random_map
 
-ENV_NAME = "FrozenLake-v1"
-# ENV_NAME = "FrozenLake8x8-v1"      # uncomment for larger version
+# ENV_NAME = "FrozenLake-v1"
+ENV_NAME = "FrozenLake8x8-v1"      # uncomment for larger version
 GAMMA = 0.9
 TEST_EPISODES = 20
 EXPERIMENT_NAME = "-q-iteration"  # or -q-gamma-0.8
@@ -70,7 +71,7 @@ class Agent:
 if __name__ == "__main__":
     test_env = gym.make(ENV_NAME)
     agent = Agent()
-    writer = SummaryWriter(comment="-q-iteration")
+    writer = SummaryWriter(comment="-q-iteration_map_64")
 
     iter_no = 0
     best_reward = 0.0

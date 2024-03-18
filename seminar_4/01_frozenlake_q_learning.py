@@ -14,9 +14,9 @@ from tensorboardX import SummaryWriter
 
 ENV_NAME = "FrozenLake-v1"
 GAMMA = 0.9
-ALPHA = 0.2
+ALPHA = 0.9
 TEST_EPISODES = 20
-EXPERIMENT_NAME = "-q-learning-determined"
+EXPERIMENT_NAME = "-q-learning-determined_alpha_0.9"
 
 class Agent:
     def __init__(self):
@@ -53,12 +53,14 @@ class Agent:
         self.Q_values[(s, a)] = old_v * (1 - ALPHA) + new_v * ALPHA
 
     def play_episode(self, env):
-        """ Evaluate current policy to check the progress of learning.
-        TODO: random action if Q_value == 0 """
+        """ Evaluate current policy to check the progress of learning."""
         total_reward = 0.0
         state, _ = env.reset()
         while True:
             q_value, action = self.best_value_and_action(state)
+            # добавление случайного выбора действия при нулевой ценности
+            if q_value == 0:
+                action = env.action_space.sample()
             new_state, reward, terminated, truncated, _ = env.step(action)
             total_reward += reward
             if terminated or truncated:

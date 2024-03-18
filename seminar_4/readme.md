@@ -12,13 +12,13 @@ if q_value == 0:
 Взятые параметры alpha: 0.2, 0.5, 0.9
 
 Результаты с alpha = 0.2:
-![alpha0_2_q_learning-determined.jpg](..%2F..%2F..%2FOneDrive%2FDocuments%2Fimages%2Falpha0_2_q_learning-determined.jpg)
+![alpha0_2_q_learning-determined.jpg](images%2Falpha0_2_q_learning-determined.jpg)
 
 Результаты с alpha = 0.5:
-![alpha0_5_q_learning-determined.jpg](..%2F..%2F..%2FOneDrive%2FDocuments%2Fimages%2Falpha0_5_q_learning-determined.jpg)
+![alpha0_5_q_learning-determined.jpg](images%2Falpha0_5_q_learning-determined.jpg)
 
 Результаты с alpha = 0.9:
-![alpha0_9_q_learning-determined.jpg](..%2F..%2F..%2FOneDrive%2FDocuments%2Fimages%2Falpha0_9_q_learning-determined.jpg)
+![alpha0_9_q_learning-determined.jpg](images%2Falpha0_9_q_learning-determined.jpg)
 
 Среднее количество шагов при alpha = 0.2: 8629 за 5 повторных запусков
 Среднее количество шагов при alpha = 0.5: 6960.4 за 5 повторных запусков

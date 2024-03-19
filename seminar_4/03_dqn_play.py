@@ -13,7 +13,7 @@ from lib import dqn_model
 import collections
 
 DEFAULT_ENV_NAME = "ALE/Pong-v5"
-MODEL_PATH = "Pong-v5-best_-16.dat"
+MODEL_PATH = "Pong-v5-best_19.dat"
 FPS = 15
 
 

@@ -9,7 +9,6 @@
 
 import gymnasium as gym
 import lib
-
 import numpy as np
 from tensorboardX import SummaryWriter
 
@@ -19,8 +18,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 GAMMA = 0.99
-LEARNING_RATE = 0.01
-EPISODES_TO_TRAIN = 4
+LEARNING_RATE = 0.005
+EPISODES_TO_TRAIN = 16
 
 
 class PGN(nn.Module):
@@ -49,7 +48,7 @@ def calc_qvals(rewards):
 
 if __name__ == "__main__":
     env = gym.make("CartPole-v0")
-    writer = SummaryWriter(comment="-cartpole-reinforce")
+    writer = SummaryWriter(comment="-cartpole-reinforce-lr-0_005_epis_16")
 
     net = PGN(env.observation_space.shape[0], env.action_space.n)
     print(net)

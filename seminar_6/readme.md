@@ -102,3 +102,19 @@ num_envs - это количество сред (environments), которые �
 
 Мы видим, что количество итераций до сходимости уменьшилось в два раза, значит уменьшение количества сред до разумных размеров может привести к более быстрому проходу.
 Повторим испытание:
+![Screenshot_51.jpg](imgs_sem_6%2FScreenshot_51.jpg)
+![Screenshot_52.jpg](imgs_sem_6%2FScreenshot_52.jpg)
+![Screenshot_53.jpg](imgs_sem_6%2FScreenshot_53.jpg)
+![Screenshot_54.jpg](imgs_sem_6%2FScreenshot_54.jpg)
+![Screenshot_55.jpg](imgs_sem_6%2FScreenshot_55.jpg)
+![Screenshot_56.jpg](imgs_sem_6%2FScreenshot_56.jpg)
+![Screenshot_57.jpg](imgs_sem_6%2FScreenshot_57.jpg)
+![Screenshot_58.jpg](imgs_sem_6%2FScreenshot_58.jpg)
+![Screenshot_59.jpg](imgs_sem_6%2FScreenshot_59.jpg)
+![Screenshot_60.jpg](imgs_sem_6%2FScreenshot_60.jpg)
+![Screenshot_61.jpg](imgs_sem_6%2FScreenshot_61.jpg)
+![Screenshot_62.jpg](imgs_sem_6%2FScreenshot_62.jpg)
+![Screenshot_63.jpg](imgs_sem_6%2FScreenshot_63.jpg)
+![Screenshot_64.jpg](imgs_sem_6%2FScreenshot_64.jpg)
+Кол-во итераций до сходимости оказалоссь 10.6 миллионов, все еще почти на 4 миллиона меньше, чем при обучении на стандартных параметрах.
+Можно предположить, что уменьшение на адекватное число num_envs может ускорить обучение.

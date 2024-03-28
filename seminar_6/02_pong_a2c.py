@@ -10,13 +10,14 @@ the value gradients, 𝜕𝜃𝑣
 
 """
 
-import argparse
+
 
 import gymnasium
 import numpy as np
 from tensorboardX import SummaryWriter
 
 import torch
+import argparse
 import torch.nn as nn
 import torch.nn.utils as nn_utils
 import torch.nn.functional as F
@@ -28,7 +29,7 @@ GAMMA = 0.99
 LEARNING_RATE = 1e-3
 ENTROPY_BETA = 0.01
 BATCH_SIZE = 128
-NUM_ENVS = 50
+NUM_ENVS = 25
 
 REWARD_STEPS = 4
 CLIP_GRAD = 0.1
@@ -125,7 +126,7 @@ if __name__ == "__main__":
         env = lib.wrappers.wrap_dqn(env)
         envs.append(env)
 
-    writer = SummaryWriter(comment="-pong-a2c_" + args.name)
+    writer = SummaryWriter(comment="-pong-a2c_NUM_ENVS_25_repeat_2" + args.name)
 
     net = AtariA2C(envs[0].observation_space.shape, envs[0].action_space.n).to(device)
     print(net)
